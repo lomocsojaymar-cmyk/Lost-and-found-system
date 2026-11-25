@@ -2,10 +2,20 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
-  "installCommand": "npm install --prefix web",
+  "installCommand": "npm install --prefix web && npm install --prefix server --omit=dev",
   "buildCommand": "npm --prefix web run build",
   "outputDirectory": "web/dist",
+  "functions": {
+    "api/index.mjs": {
+      "excludeFiles": "{ai-server,mobile,docs,.agents}/**",
+      "maxDuration": 60
+    }
+  },
   "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/index.mjs"
+    },
     {
       "source": "/((?!api/).*)",
       "destination": "/index.html"
