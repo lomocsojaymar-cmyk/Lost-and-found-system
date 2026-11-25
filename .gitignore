@@ -23,6 +23,22 @@ dist-ssr
 *.sln
 *.sw?
 
+mobile/
+ai-server/
+docs/
+supabase/
+.agents/
+.github/
+start-forecast.ps1
+supabase-schema.sql
+
+**/__pycache__/
+**/.venv/
+**/venv/
+**/*.pt
+**/*.pth
+**/*.safetensors
+
 # Environment variables (contains secrets - never commit)
 .env
 .env.*
